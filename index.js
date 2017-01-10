@@ -1,6 +1,7 @@
-  const addItems = document.querySelector('.add-items');
-  const itemsList = document.querySelector('.plates');
-  const items = JSON.parse(localStorage.getItem('items')) || [];
+const addItems = document.querySelector('.add-items');
+const itemsList = document.querySelector('.plates');
+const items = JSON.parse(localStorage.getItem('items')) || [];
+const deleteAll = document.querySelector('button[name="deleteAll"]');
 
 function addItem(e) {
   e.preventDefault();

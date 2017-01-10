@@ -64,7 +64,7 @@
     }
 
     .plates input:checked + label:before {
-      content: '🌮';
+      content: '🍕';
     }
 
     .add-items {
@@ -76,3 +76,25 @@
       outline:0;
       border:1px solid rgba(0,0,0,0.1);
     }
+
+
+button {
+  background-color:#c0c0c0;
+	display:inline-block;
+	cursor:pointer;
+	color: black;
+  font-family: Futura,"Trebuchet MS",Arial,sans-serif
+	font-size:14px;
+	text-decoration:none;
+  border: none;
+  padding: 8px;
+  margin: 8px 2px;
+}
+
+button:hover {
+	background-color:#6c7c7c;
+}
+button:active {
+	position:relative;
+	top:1px;
+}
