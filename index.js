@@ -40,16 +40,26 @@ function populateList(plates = [], platesList) {
 }
 
 function deleteAllItems(e) {
+  localStorage.removeItem('items');
   items.splice(0, items.length);
   itemsList.innerHTML = '';
 }
 
-const checkAllItems = (e) => {
+const checkAllItems = () => {
   items.map( (item, i) => {
     const elCheck = itemsList.querySelectorAll('input');
     if (item.done) return;
-    item.done = !items.done;
+    item.done = !item.done;
     elCheck[i].checked = true;
+  });
+}
+
+const uncheckAllItems = () => {
+  items.map( (item, i) => {
+    const elCheck = itemsList.querySelectorAll('input');
+    if (!item.done) return;
+    item.done = !item.done;
+    elCheck[i].checked = false;
   });
 }
 
@@ -60,3 +70,4 @@ populateList(items, itemsList);
 itemsList.addEventListener('click', toggleDone);
 deleteAll.addEventListener('click', deleteAllItems);
 checkAll.addEventListener('click', checkAllItems);
+uncheckAll.addEventListener('click', uncheckAllItems);
