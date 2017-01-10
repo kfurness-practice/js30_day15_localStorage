@@ -44,9 +44,19 @@ function deleteAllItems(e) {
   itemsList.innerHTML = '';
 }
 
+const checkAllItems = (e) => {
+  items.map( (item, i) => {
+    const elCheck = itemsList.querySelectorAll('input');
+    if (item.done) return;
+    item.done = !items.done;
+    elCheck[i].checked = true;
+  });
+}
+
 addItems .addEventListener('submit', addItem);
 
 populateList(items, itemsList);
 
 itemsList.addEventListener('click', toggleDone);
 deleteAll.addEventListener('click', deleteAllItems);
+checkAll.addEventListener('click', checkAllItems);
