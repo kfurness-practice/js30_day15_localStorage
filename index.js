@@ -2,6 +2,8 @@ const addItems = document.querySelector('.add-items');
 const itemsList = document.querySelector('.plates');
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const deleteAll = document.querySelector('button[name="deleteAll"]');
+const checkAll = document.querySelector('button[name="checkAll"]');
+const uncheckAll = document.querySelector('button[name="uncheckAll"]');
 
 function addItem(e) {
   e.preventDefault();
@@ -37,8 +39,14 @@ function populateList(plates = [], platesList) {
   }).join('');
 }
 
+function deleteAllItems(e) {
+  items.splice(0, items.length);
+  itemsList.innerHTML = '';
+}
+
 addItems .addEventListener('submit', addItem);
 
 populateList(items, itemsList);
 
 itemsList.addEventListener('click', toggleDone);
+deleteAll.addEventListener('click', deleteAllItems);
